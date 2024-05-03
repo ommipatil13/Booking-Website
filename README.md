@@ -1,3 +1,3 @@
 # Booking-Website
 
-developing a booking web app using mern stack.
+developing a movie booking web app using mern stack.
