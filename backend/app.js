@@ -2,6 +2,7 @@ import Express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import user_routes from './routes/user_routes.js';
+import admin_routes from './routes/admin_routes.js';
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ const app = Express();
 //middleware
 app.use(Express.json())
 app.use('/user', user_routes);
+app.use('/admin', admin_routes);
 
 mongoose
     .connect(

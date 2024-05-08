@@ -64,6 +64,49 @@ export const updateUser = async (req, res, next) => {
     if (!user) {
         return res.status(500).json({ message: "something went wrong" })
     }
-    res.status(200).json({ message: "Updated Successfully", user });
+    res.status(200).json({ message: "Updated Successfully" });
 
+}
+
+export const deleteUser = async (req, res, next) => {
+    const id = req.params.id;
+    let user;
+    try {
+        user = await User.findByIdAndDelete(id)
+    } catch (error) {
+        return console.log(error)
+    }
+
+    if (!user) {
+        return res.status(500).json({ message: "something went wrong" })
+    }
+    res.status(200).json({ message: "Deleted Successfully" });
+
+}
+
+export const login = async (req, res, next) => {
+    const { email, password } = req.body;
+
+    if (!email && email.trim() === '' && !password && password.trim() === '') {
+        return res.status(422).json({ message: 'Invalid Inputs' });
+    }
+
+    let existingUser;
+    try {
+        existingUser = await User.findOne({ email });
+    } catch (error) {
+        return console.log(error);
+    }
+
+    if (!existingUser) {
+        return res.status(404).json({ message: "unable to find user" })
+    }
+
+    const isPasswordCorrect = bcrypt.compareSync(password, existingUser.password);
+
+    if (!isPasswordCorrect) {
+        return res.status(400).json({ message: "password incorrect" })
+    }
+
+    return res.status(200).json({ message: "login successfull" })
 }
