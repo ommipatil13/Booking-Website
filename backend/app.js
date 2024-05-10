@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import user_routes from './routes/user_routes.js';
 import admin_routes from './routes/admin_routes.js';
+import movie_routes from './routes/movie_routes.js';
+import booking_routes from './routes/booking_routes.js';
 
 dotenv.config();
 
@@ -12,6 +14,8 @@ const app = Express();
 app.use(Express.json())
 app.use('/user', user_routes);
 app.use('/admin', admin_routes);
+app.use('/movie', movie_routes);
+app.use('/booking', booking_routes)
 
 mongoose
     .connect(
