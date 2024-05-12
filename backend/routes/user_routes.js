@@ -1,5 +1,5 @@
 import Express from 'express';
-import { deleteUser, getAllUsers, login, signup, updateUser } from '../controllers/user_controllers.js';
+import { deleteUser, getAllUsers, getBookingsOfUser, login, signup, updateUser } from '../controllers/user_controllers.js';
 
 const userRouter = Express.Router();
 
@@ -10,6 +10,9 @@ userRouter.delete('/:id', deleteUser);
 
 //login
 userRouter.post('/login', login)
+
+//get bookings
+userRouter.get('/bookings/:id', getBookingsOfUser)
 
 
 export default userRouter;

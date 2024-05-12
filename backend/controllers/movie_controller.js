@@ -41,6 +41,7 @@ export const addMovie = async (req, res, next) => {
         await adminUser.save({ session })
         await session.commitTransaction()
 
+
     } catch (error) {
         return console.log('error occured', error)
     }
