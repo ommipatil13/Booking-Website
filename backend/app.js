@@ -5,10 +5,13 @@ import user_routes from './routes/user_routes.js';
 import admin_routes from './routes/admin_routes.js';
 import movie_routes from './routes/movie_routes.js';
 import booking_routes from './routes/booking_routes.js';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = Express();
+
+app.use(cors());
 
 //middleware
 app.use(Express.json())
