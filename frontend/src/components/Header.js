@@ -3,8 +3,10 @@ import { AppBar, Autocomplete, Tab, Tabs, TextField, Toolbar } from '@mui/materi
 import MovieIcon from '@mui/icons-material/Movie';
 import { Box } from '@mui/system';
 import { getAllMovies } from '../api_helpers/api_helpers';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const dummyArray = ["memory", "GOD", "RE"]
+// const dummyArray = ["memory", "GOD", "RE"]
 
 const Header = () => {
 
@@ -16,7 +18,7 @@ const Header = () => {
     }, [])
 
     return (
-        <AppBar sx={{ bgcolor: "#C60C30" }}>
+        <AppBar position='sticky' sx={{ bgcolor: "#C60C30" }}>
             <Toolbar>
                 <Box width={"10%"}>
                     <MovieIcon />
@@ -24,16 +26,16 @@ const Header = () => {
                 <Box width={"30%"} margin={'auto'}>
                     <Autocomplete
                         freeSolo
-                        options={dummyArray.map((option) => option)}
+                        options={movies && movies.map((option) => option.title)}
                         renderInput={(params) =>
                             <TextField sx={{ input: { color: "white" } }} variant="standard" {...params} placeholder="Search Movies" />}
                     />
                 </Box>
                 <Box display={'flex'}>
                     <Tabs value={value} indicatorColor='secondary' textColor='inherit' onChange={(e, val) => setValue(val)}>
-                        <Tab label='Movies' />
-                        <Tab label='Admin' />
-                        <Tab label='Auth' />
+                        <Tab LinkComponent={Link} to='/movies' label='Movies' />
+                        <Tab LinkComponent={Link} to='/admin' label='Admin' />
+                        <Tab LinkComponent={Link} to='/auth' label='Auth' />
                     </Tabs>
                 </Box>
             </Toolbar>
