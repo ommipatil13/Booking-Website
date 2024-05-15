@@ -18,7 +18,7 @@ const Header = () => {
     }, [])
 
     return (
-        <AppBar position='sticky' sx={{ bgcolor: "#C60C30" }}>
+        <AppBar position='sticky' sx={{ bgcolor: "#C60C30", borderRadius: "50px" }} >
             <Toolbar>
                 <Box width={"10%"}>
                     <MovieIcon />
