@@ -20,7 +20,7 @@ const HomePage = () => {
             </Box>
 
             <Box padding={5} margin={'auto'}>
-                <Typography variant='h4' textAlign={'center'}> Latest Release </Typography>
+                <Typography variant='h4' textAlign={'center'}  > Latest Release </Typography>
             </Box>
 
             <Box display={'flex'} margin={'auto'} width={'80%'} justifyContent={'center'} alignItems={'center'} flexWrap={'wrap'}>
