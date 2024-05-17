@@ -22,3 +22,17 @@ export const sendUserAuthRequest = async (data, signup) => {
     const resData = await res.data;
     return resData;
 }
+
+export const sendAdminAuthRequest = async (data) => {
+    const res = await axios.post("/admin/login", {
+        email: data.email,
+        password: data.password
+    }).catch(error => console.log(error))
+
+    if (res.status !== 200) {
+        return console.log('No Data')
+    }
+    const resData = await res.data;
+    return resData;
+
+}

@@ -41,7 +41,7 @@ export const signup = async (req, res, next) => {
         return res.status(500).json({ message: 'Unexpected Error Occured' });
     }
 
-    return res.status(201).json({ user })
+    return res.status(201).json({ id: user._id })
 };
 
 export const updateUser = async (req, res, next) => {
@@ -109,7 +109,7 @@ export const login = async (req, res, next) => {
         return res.status(400).json({ message: "password incorrect" })
     }
 
-    return res.status(200).json({ message: "login successfull" })
+    return res.status(200).json({ message: "login successfull", id: existingUser._id })
 }
 
 export const getBookingsOfUser = async (req, res, next) => {
