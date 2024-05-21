@@ -117,6 +117,8 @@ export const getBookingsOfUser = async (req, res, next) => {
     let bookings;
     try {
         bookings = await Bookings.find({ user: id })
+            .populate("movie")
+            .populate("user");
     } catch (error) {
         return console.log(error)
     }
@@ -127,3 +129,22 @@ export const getBookingsOfUser = async (req, res, next) => {
 
     return res.status(200).json({ bookings })
 }
+
+export const getUserById = async (req, res, next) => {
+    const id = req.params.id
+    let user;
+    try {
+        user = await User.findById(id);
+    } catch (error) {
+        // return next(error);
+        return console.log(error);
+
+    }
+
+    if (!user) {
+        return res.status(500).json({ message: 'Unexpected Error Occured' });
+    }
+
+    //   return res.status(200).json({ users: users }); but in es6 we dont need to write
+    return res.status(200).json({ user });
+};

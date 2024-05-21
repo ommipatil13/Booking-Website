@@ -16,7 +16,7 @@ const HomePage = () => {
         <Box width={"100%"} height={"100%"} margin={"auto"} marginTop={2}  >
 
             <Box margin={'auto'} width={"80%"} height={"40vh"} padding={2} >
-                <img width={"100%"} height={"100%"} src="https://www.tallengestore.com/cdn/shop/products/LordOfTheRings-FellowshipOfTheRing-HollywoodMoviePoster_ab38af96-9cf9-4611-b4d9-c45474e257f0.jpg?v=1630764631" alt="lordoftherings" />
+                <img style={{ borderRadius: "20px" }} width={"100%"} height={"100%"} src="https://www.tallengestore.com/cdn/shop/products/LordOfTheRings-FellowshipOfTheRing-HollywoodMoviePoster_ab38af96-9cf9-4611-b4d9-c45474e257f0.jpg?v=1630764631" alt="lordoftherings" />
             </Box>
 
             <Box padding={5} margin={'auto'}>

@@ -1,11 +1,12 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MovieItem = ({ title, releaseDate, posterUrl, id }) => {
     return (
         <Card sx={{
             width: 250, height: 300, borderRadius: 5, margin: 1, ":hover": {
-                boxShadow: "10px 10px 20px #ccc"
+                boxShadow: "10px 10px 20px #ccc",
             }
         }}>
 
@@ -22,7 +23,10 @@ const MovieItem = ({ title, releaseDate, posterUrl, id }) => {
             </CardContent>
 
             <CardActions>
-                <Button sx={{ margin: 'auto' }} size="small">Book</Button>
+                <Button sx={{
+                    paddingX: "40px", margin: 'auto', border: '2px solid green',
+                    borderRadius: '20px', ":hover": { bgcolor: 'green', color: 'white', }
+                }} size="small" LinkComponent={Link} to={`/booking/${id}`} >Book</Button>
             </CardActions>
 
         </Card >

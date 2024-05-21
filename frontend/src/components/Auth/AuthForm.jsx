@@ -1,6 +1,8 @@
 import { Box, Button, Dialog, FormLabel, IconButton, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import CloseRounedIcon from '@mui/icons-material/CloseRounded'
+import { Link } from 'react-router-dom';
+
 
 const labelStyle = { mt: 1, mb: 1 };
 
@@ -26,12 +28,14 @@ const AuthForm = ({ onSubmit, isAdmin }) => {
 
     }
 
+
+
     return (
         <Dialog PaperProps={{ style: { borderRadius: 20 } }} open={true}  >
             <Box sx={{ ml: 'auto', }} >
-                <IconButton   > <CloseRounedIcon /> </IconButton>
+                <IconButton LinkComponent={Link} to='/' > <CloseRounedIcon /> </IconButton>
             </Box>
-            <Typography variant='h4' textAlign={'center'}  > {isSignUp ? "Signup" : "Login"} </Typography>
+            <Typography variant='h4' textAlign={'center'}  > {isSignUp ? "Register" : "Login"} </Typography>
             <form onSubmit={handleSubmit} >
                 <Box padding={6} display={'flex'} justifyContent={'center'} flexDirection={'column'} width={400} alignContent={'center'}
                     margin={'auto'} >
@@ -53,11 +57,11 @@ const AuthForm = ({ onSubmit, isAdmin }) => {
                         value={inputs.password} onChange={handleChange} />
 
                     <Button type='submit' fullWidth sx={{ mt: 2, borderRadius: 10, bgcolor: '#C60C31', }} variant='contained' >
-                        {isSignUp ? "Signup" : "Login"}
+                        {isSignUp ? "Register" : "Login"}
                     </Button>
 
                     {!isAdmin && <Button onClick={() => setIsSignUp(!isSignUp)} fullWidth sx={{ mt: 2, borderRadius: 10 }}  >
-                        Switch to  {isSignUp ? "Login" : "Signup"} </Button>}
+                        {isSignUp ? "Already Register Login Here?" : "New User Register Here?"} </Button>}
                 </Box>
             </form>
         </Dialog >

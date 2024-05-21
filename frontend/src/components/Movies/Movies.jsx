@@ -16,7 +16,7 @@ const Movies = () => {
             <Typography
                 variant='h4' margin={'auto'} padding={2} textAlign={'center'} width={"40%"} borderRadius={'50px'} color="white"
                 bgcolor={'#900C3F'} >
-                All Movies
+                Films
             </Typography>
 
             <Box width={'100%'} margin={'auto'} marginTop={5} display={'flex'} justifyContent={'flex-start'} alignItems={'center'} flexWrap={'wrap'} >
