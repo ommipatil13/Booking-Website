@@ -48,14 +48,17 @@ const Booking = () => {
                             </Box>
                         </Box>
 
-                        <Box width={'50%'} paddingTop={3} >
+                        <Box width={'50%'} paddingTop={3} sx={{ Input: { bgcolor: 'white', padding: '10px', borderRadius: '20px' } }} >
                             <form onSubmit={handleSubmit} >
                                 <Box padding={5} margin={'auto'} display={'flex'} flexDirection={'column'} >
-                                    <FormLabel>Choose your Seat</FormLabel>
+                                    <FormLabel sx={{ color: 'white' }} >Choose your Seat:</FormLabel>
                                     <TextField value={inputs.seatNumber} onChange={handleChange} name='seatNumber' type='number' margin='normal' variant='standard' ></TextField>
-                                    <FormLabel>Date</FormLabel>
+                                    <FormLabel sx={{ color: 'white' }} >Date:</FormLabel>
                                     <TextField value={inputs.date} onChange={handleChange} name='date' type='date' margin='normal' variant='standard' ></TextField>
-                                    <Button type='submit' sx={{ mt: 3 }} >Enjoy Movie</Button>
+                                    <Button type='submit' sx={{
+                                        mt: 3, bgcolor: '#900C3F', color: 'white', borderRadius: '40px', marginLeft: '10px',
+                                        transition: 'all 0.2s ease', ":hover": { bgcolor: '#900C3F', scale: '1.02' }
+                                    }} >Enjoy Movie</Button>
                                 </Box>
                             </form>
                         </Box>

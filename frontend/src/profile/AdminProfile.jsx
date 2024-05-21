@@ -30,14 +30,14 @@ const AdminProfile = () => {
 
                 {admin && admin.addedMovies.length > 0 && < Box width={'70%'} display={'flex'} flexDirection={'column'} >
 
-                    <Typography variant='h3' fontFamily={'verdana'} textAlign={'center'} padding={2} >Added Movies</Typography>
+                    <Typography variant='h3' fontFamily={'verdana'} textAlign={'center'} padding={2} >Added Films</Typography>
                     <Box width={'80%'} margin={'auto'} display={'flex'} flexDirection={'column'} >
                         <List>
                             {
                                 admin.addedMovies.map((movie, index) => (
                                     <ListItem sx={{ bgcolor: '#900C3F', color: 'white', textAlign: 'center', margin: 1, borderRadius: 8 }} >
                                         <ListItemText sx={{ margin: 1, width: 'auto', textAlign: 'left' }} >
-                                            Movie: {movie.title}
+                                            Film: {movie.title}
                                         </ListItemText>
 
 

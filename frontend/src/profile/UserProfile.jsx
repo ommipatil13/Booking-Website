@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { deleteBooking, getUserBooking, getUserDetails } from '../api_helpers/api_helpers'
 import { Box } from '@mui/system';
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { IconButton, List, ListItem, ListItemText, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -29,7 +29,7 @@ const UserProfile = () => {
             <Fragment>
 
                 {user && < Box width={'30%'} padding={3} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} >
-                    <InsertEmoticonIcon sx={{ fontSize: '10rem', ml: 15 }} />
+                    <ManageAccountsIcon sx={{ fontSize: '10rem', ml: 15 }} />
                     <Typography padding={1} width={'auto'} textAlign={'center'} border={'1px solid #ccc'} borderRadius={6} >
                         Name: {user.name}
                     </Typography>
@@ -47,7 +47,7 @@ const UserProfile = () => {
                                 bookings.map((booking, index) => (
                                     <ListItem sx={{ bgcolor: '#900C3F', color: 'white', textAlign: 'center', margin: 1, borderRadius: 8 }} >
                                         <ListItemText sx={{ margin: 1, width: 'auto', textAlign: 'left' }} >
-                                            Movie: {booking.movie.title}
+                                            Film: {booking.movie.title}
                                         </ListItemText>
                                         <ListItemText sx={{ margin: 1, width: 'auto', textAlign: 'left' }} >
                                             Seat Number: {booking.seatNumber}

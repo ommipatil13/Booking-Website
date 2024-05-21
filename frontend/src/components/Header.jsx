@@ -53,12 +53,12 @@ const Header = () => {
                         freeSolo
                         options={movies && movies.map((option) => option.title)}
                         renderInput={(params) =>
-                            <TextField sx={{ input: { color: "white" } }} variant="standard" {...params} placeholder="Search Movies" />}
+                            <TextField sx={{ input: { color: "white" } }} variant="standard" {...params} placeholder="Search Films" />}
                     />
                 </Box>
                 <Box display={'flex'}>
                     <Tabs value={value} indicatorColor='secondary' textColor='inherit' onChange={(e, val) => setValue(val)}>
-                        <Tab LinkComponent={Link} to='/movies' label='Movies' />
+                        <Tab LinkComponent={Link} to='/movies' label='Films' />
                         {
                             !isAdminLoggedIn && !isUserLoggedIn && <>
                                 <Tab LinkComponent={Link} to='/admin' label='Admin' />
@@ -73,7 +73,7 @@ const Header = () => {
                         }
                         {
                             isAdminLoggedIn && <>
-                                <Tab LinkComponent={Link} to='/add' label='Add Movies' />
+                                <Tab LinkComponent={Link} to='/add' label='Create Film' />
                                 <Tab LinkComponent={Link} to='/user-admin' label='Profile' />
                                 <Tab LinkComponent={Link} to='/' label='Logout' onClick={() => logout(true)} />
                             </>

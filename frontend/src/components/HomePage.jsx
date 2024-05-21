@@ -30,12 +30,15 @@ const HomePage = () => {
             </Box>
 
             <Box display={'flex'} padding={5} margin={'auto'}>
-                <Button LinkComponent={Link} to='/movies' variant='outlined' sx={{ margin: 'auto', color: '#2b2d42' }}>
-                    View all Movies
+                <Button LinkComponent={Link} to='/movies' sx={{
+                    margin: 'auto', color: 'white', border: '4px solid #900C3F',
+                    paddingX: '25px', paddingY: '10px', borderRadius: '40px', ":hover": { bgcolor: '#900C3F' }
+                }}>
+                    Load More Films
                 </Button>
             </Box>
 
-        </Box>
+        </Box >
     )
 }
 
