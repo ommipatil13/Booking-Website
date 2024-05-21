@@ -34,7 +34,7 @@ const HomePage = () => {
                     margin: 'auto', color: 'white', border: '4px solid #900C3F',
                     paddingX: '25px', paddingY: '10px', borderRadius: '40px', ":hover": { bgcolor: '#900C3F' }
                 }}>
-                    Load More Films
+                    Load More Films add load effect
                 </Button>
             </Box>
 

@@ -52,9 +52,9 @@ const Booking = () => {
                             <form onSubmit={handleSubmit} >
                                 <Box padding={5} margin={'auto'} display={'flex'} flexDirection={'column'} >
                                     <FormLabel sx={{ color: 'white' }} >Choose your Seat:</FormLabel>
-                                    <TextField value={inputs.seatNumber} onChange={handleChange} name='seatNumber' type='number' margin='normal' variant='standard' ></TextField>
+                                    <TextField value={inputs.seatNumber} InputProps={{ disableUnderline: true, }} onChange={handleChange} name='seatNumber' type='number' margin='normal' variant='standard' ></TextField>
                                     <FormLabel sx={{ color: 'white' }} >Date:</FormLabel>
-                                    <TextField value={inputs.date} onChange={handleChange} name='date' type='date' margin='normal' variant='standard' ></TextField>
+                                    <TextField value={inputs.date} InputProps={{ disableUnderline: true, }} onChange={handleChange} name='date' type='date' margin='normal' variant='standard' ></TextField>
                                     <Button type='submit' sx={{
                                         mt: 3, bgcolor: '#900C3F', color: 'white', borderRadius: '40px', marginLeft: '10px',
                                         transition: 'all 0.2s ease', ":hover": { bgcolor: '#900C3F', scale: '1.02' }
