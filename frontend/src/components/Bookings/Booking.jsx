@@ -1,9 +1,14 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { getMovieDetails, newBooking } from '../../api_helpers/api_helpers';
 import { Box, Button, FormLabel, TextField, Typography } from '@mui/material';
+import Snackbar from '@mui/material/Snackbar';
+
 
 const Booking = () => {
+
+    const navigate = useNavigate()
+
     const [movie, setMovie] = useState()
 
     const id = useParams().id;
@@ -18,10 +23,25 @@ const Booking = () => {
         setInputs((prevState) => ({ ...prevState, [e.target.name]: e.target.value }))
     }
 
+    const [open, setOpen] = React.useState(false);
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault()
+        const { seatNumber, date } = inputs;
+        if (seatNumber === '' || date === '') {
+            setOpen(true)
+            return
+        }
         console.log(inputs);
         newBooking({ ...inputs, movie: movie._id }).then((res) => console.log(res)).catch((error) => console.log(error))
+        navigate('/payment')
     }
 
     useEffect(() => {
@@ -64,6 +84,14 @@ const Booking = () => {
                         </Box>
 
                     </Box>
+
+                    <Snackbar
+                        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                        open={open}
+                        autoHideDuration={5000}
+                        onClose={handleClose}
+                        message="Please fill all details"
+                    />
 
                 </Fragment>
             }
