@@ -12,6 +12,7 @@ import UserProfile from "./profile/UserProfile";
 import AddMovie from "./components/Movies/AddMovie";
 import AdminProfile from "./profile/AdminProfile";
 import Payment from "./Payment/Payment";
+import Carousell from "./assets/Carousell";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='*' element={<HomePage />} />
+
           <Route path='/movies' element={<Movies />} />
           {
             !isUserLoggedIn && !isAdminLoggedIn &&

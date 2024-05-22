@@ -1,6 +1,7 @@
 import Express from 'express';
 import stripe from 'stripe';
 import dotenv from 'dotenv';
+import User from '../models/User.js';
 
 dotenv.config();
 
@@ -9,6 +10,12 @@ const stripeApi = stripe(process.env.PAYMENT_SECRET_KEY)
 const paymentRouter = Express.Router();
 
 paymentRouter.post('/', async (req, res) => {
+
+    // -------------------------------------------------------------
+    // const id = req.params.id
+    // let user = await User.findById(id)
+    //--------------------------------------------------------------
+
     const product = await stripeApi.products.create({
         name: "film"
     })
@@ -31,7 +38,7 @@ paymentRouter.post('/', async (req, res) => {
                 }
             ],
             mode: 'payment',
-            success_url: 'http://localhost:3000/success',
+            success_url: 'http://localhost:3000/user',
             cancel_url: 'http://localhost:3000/cancel',
             customer_email: 'demo@gmail.com',
         })

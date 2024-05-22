@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { getMovieDetails, newBooking } from '../../api_helpers/api_helpers';
 import { Box, Button, FormLabel, TextField, Typography } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
-
+import axios from 'axios';
 
 const Booking = () => {
 
@@ -32,16 +32,28 @@ const Booking = () => {
         setOpen(false);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+
         const { seatNumber, date } = inputs;
         if (seatNumber === '' || date === '') {
             setOpen(true)
-            return
+            // return
         }
-        console.log(inputs);
-        newBooking({ ...inputs, movie: movie._id }).then((res) => console.log(res)).catch((error) => console.log(error))
-        navigate('/payment')
+        else {
+
+            let response = await axios.post(`/payment`)
+
+            if (response && response.status === 200) {
+                window.location.href = response.data.url
+                // console.log(response.data)
+                // console.log(inputs);
+                newBooking({ ...inputs, movie: movie._id }).then((res) => console.log(res)).catch((error) => console.log(error))
+            }
+
+        }
+
+        // navigate('/payment')
     }
 
     useEffect(() => {
@@ -72,7 +84,7 @@ const Booking = () => {
                             <form onSubmit={handleSubmit} >
                                 <Box padding={5} margin={'auto'} display={'flex'} flexDirection={'column'} >
                                     <FormLabel sx={{ color: 'white' }} >Choose your Seat:</FormLabel>
-                                    <TextField value={inputs.seatNumber} InputProps={{ disableUnderline: true, }} onChange={handleChange} name='seatNumber' type='number' margin='normal' variant='standard' ></TextField>
+                                    <TextField placeholder='Enter your Seat' value={inputs.seatNumber} InputProps={{ disableUnderline: true, }} onChange={handleChange} name='seatNumber' type='number' margin='normal' variant='standard' ></TextField>
                                     <FormLabel sx={{ color: 'white' }} >Date:</FormLabel>
                                     <TextField value={inputs.date} InputProps={{ disableUnderline: true, }} onChange={handleChange} name='date' type='date' margin='normal' variant='standard' ></TextField>
                                     <Button type='submit' sx={{
