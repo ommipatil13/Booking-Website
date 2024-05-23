@@ -31,7 +31,7 @@ const HomePage = () => {
             {loading ? <Loading /> : (
                 <Box width={"100%"} height={"100%"} margin={"auto"} marginTop={2}  >
 
-                    <Box margin={'auto'} width={"80%"} height={"40vh"} padding={2} >
+                    <Box margin={'auto'} width={"80%"} height={"50vh"} padding={2} >
                         <Carousell />
                     </Box>
 

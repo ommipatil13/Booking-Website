@@ -23,7 +23,7 @@ const Carousell = () => {
 
     return (
         <>
-            <Carousel sx={{ borderRadius: '40px', height: '45vh' }} >
+            <Carousel sx={{ borderRadius: '40px', height: '50vh' }} >
                 {items.map((item) => (
                     <Paper  >
                         <img width={"100%"} height={"100%"} src={item.image} alt={item.alt} />
