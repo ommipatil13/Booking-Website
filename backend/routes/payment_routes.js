@@ -40,7 +40,7 @@ paymentRouter.post('/', async (req, res) => {
             mode: 'payment',
             success_url: 'http://localhost:3000/user',
             cancel_url: 'http://localhost:3000/cancel',
-            customer_email: 'demo@gmail.com',
+            customer_email: 'test@gmail.com',
         })
 
     }
