@@ -19,7 +19,9 @@ const UserProfile = () => {
     // console.log(bookings)
 
     const handleDelete = (id) => {
-        deleteBooking(id).then((res) => console.log(res)).catch((error) => console.log(error))
+
+        deleteBooking(id).then((res) => console.log(res)).catch((error) => console.log(error));
+        window.location.reload();
     }
 
     return (
