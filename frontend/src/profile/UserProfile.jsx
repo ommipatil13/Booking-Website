@@ -4,11 +4,15 @@ import { Box } from '@mui/system';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { Button, IconButton, List, ListItem, ListItemText, TextField, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import axios from 'axios';
 
 const UserProfile = () => {
 
     const [bookings, setBookings] = useState('')
-    const [user, setUser] = useState('')
+    const [user, setUser] = useState({
+        name: '',
+        email: ''
+    })
 
     useEffect(() => {
         getUserBooking().then((res) => setBookings(res.bookings)).catch((error) => console.log(error))
@@ -25,9 +29,24 @@ const UserProfile = () => {
         window.location.reload();
     }
 
-    const handleSubmit = (e) => {
+    const handleChange = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
+        setUser({ ...user, [name]: value })
+        console.log(name, value)
+    }
+
+    const id = user._id;
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert('check')
+        const updateUser = await axios.put(`/user/${id}`, user).catch((error) => console.log(error))
+
+        if (updateUser.status !== 200) {
+            return console.log('No Data')
+        }
+        const resData = await updateUser.data;
+        return resData;
     }
 
     return (
@@ -51,15 +70,16 @@ const UserProfile = () => {
                         <form onSubmit={handleSubmit} >
                             <TextField sx={{ border: '1px solid #ccc', width: '100%', borderRadius: 6, Input: { color: 'white', textAlign: "center" } }}
                                 placeholder='Name' variant='standard' type='text' name='name'
-                                value={user.name}
+                                value={user.name} onChange={handleChange}
                                 InputProps={{ disableUnderline: true }} />
 
                             <TextField sx={{ border: '1px solid #ccc', mt: 2, width: '100%', borderRadius: 6, Input: { color: 'white', textAlign: "center" } }}
                                 placeholder='Email' variant='standard' type='text' name='email'
-                                value={user.email}
+                                value={user.email} onChange={handleChange}
                                 InputProps={{ disableUnderline: true }} />
 
-                            <Button type='submit' variant='contained' sx={{ marginTop: 3, borderRadius: 6, width: '100%', backgroundColor: '#900C3F' }}  >Update </Button>
+                            <Button type='submit' variant='contained' sx={{ marginTop: 3, borderRadius: 6, width: '100%', backgroundColor: '#900C3F' }}  >
+                                Update </Button>
                         </form>
 
                     </Box>

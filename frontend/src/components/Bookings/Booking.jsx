@@ -50,7 +50,6 @@ const Booking = () => {
                 // console.log(inputs);
                 newBooking({ ...inputs, movie: movie._id }).then((res) => console.log(res)).catch((error) => console.log(error))
             }
-
         }
 
         // navigate('/payment')

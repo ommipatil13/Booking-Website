@@ -49,14 +49,14 @@ export const updateUser = async (req, res, next) => {
 
     const { name, email, password } = req.body;
 
-    if (!name && name.trim() === '' && !email && email.trim() === '' && !password && password.trim() === '') {
+    if (!name && name.trim() === '' && !email && email.trim() === '') {
         return res.status(422).json({ message: 'Invalid Inputs' });
     }
 
     const hashedPassword = bcrypt.hashSync(password)
     let user;
     try {
-        user = await User.findByIdAndUpdate(id, { name, email, password: hashedPassword });
+        user = await User.findByIdAndUpdate(id, { name, email, password: hashedPassword }, { new: true });
 
     } catch (error) {
         return console.log(error)

@@ -11,11 +11,6 @@ const paymentRouter = Express.Router();
 
 paymentRouter.post('/', async (req, res) => {
 
-    // -------------------------------------------------------------
-    // const id = req.params.id
-    // let user = await User.findById(id)
-    //--------------------------------------------------------------
-
     const product = await stripeApi.products.create({
         name: "film"
     })
@@ -40,12 +35,14 @@ paymentRouter.post('/', async (req, res) => {
             mode: 'payment',
             success_url: 'http://localhost:3000/user',
             cancel_url: 'http://localhost:3000/cancel',
-            customer_email: 'test@gmail.com',
+            customer_email: 'test@check.com',
         })
 
     }
 
     res.json(session)
+
+
 
 });
 

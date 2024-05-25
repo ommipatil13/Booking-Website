@@ -39,8 +39,8 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='*' element={<HomePage />} />
-
           <Route path='/movies' element={<Movies />} />
+
           {
             !isUserLoggedIn && !isAdminLoggedIn &&
             <>
