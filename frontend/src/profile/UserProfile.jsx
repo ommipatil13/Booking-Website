@@ -33,7 +33,7 @@ const UserProfile = () => {
         let name = e.target.name;
         let value = e.target.value;
         setUser({ ...user, [name]: value })
-        console.log(name, value)
+        // console.log(name, value)
     }
 
     const id = user._id;

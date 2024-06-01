@@ -46,8 +46,10 @@ const Booking = () => {
 
             if (response && response.status === 200) {
                 window.location.href = response.data.url
-                // console.log(response.data)
-                // console.log(inputs);
+
+                console.log(response.data)
+                console.log(inputs);
+
                 newBooking({ ...inputs, movie: movie._id }).then((res) => console.log(res)).catch((error) => console.log(error))
             }
         }
